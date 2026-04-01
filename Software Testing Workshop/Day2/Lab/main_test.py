@@ -38,13 +38,9 @@ def test_withdraw_full_balance(account):
     account.logger.log.assert_called_with("Withdrew 100")
 
 
-#Exception
+#Exception / Error Handling
 
 def test_withdraw_insufficient_funds(account):
     with pytest.raises(ValueError, match="Insufficient funds"):
         account.withdraw(200)
     account.logger.log.assert_called_with("Failed withdrawal of 200")
-
-
-# **To run it**, open terminal and type:
-# pytest main_test.py -v```
